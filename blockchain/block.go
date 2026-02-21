@@ -3,12 +3,15 @@ package blockchain
 import (
 	"bytes"
 	"crypto/md5"
+	"math/rand"
+	"time"
 )
 
 type Block struct {
 	Hash     string
 	Data     string
 	PrevHash string
+	Nonce    int
 }
 
 // ComputeHash calculates the hash of the block based on its data and previous hash.
@@ -20,16 +23,22 @@ func (b *Block) ComputeHash() {
 
 // CreateBlock creates a new block with the given data and previous hash, computes its hash, and returns it.
 func CreateBlock(data string, prevHash string) *Block {
-	block := &Block{
-		Data:     data,
-		PrevHash: prevHash,
-	}
+	rand.Seed(time.Now().UnixNano()) // Seed the random number generator
+	initialNonce := rand.Intn(10000)
 
-	block.ComputeHash()
+	block := &Block{"", data, prevHash, initialNonce}
+
+	newPow := NewProofOfWork(block)
+
+	nonce, hash := newPow.MineBlock()
+
+	block.Hash = string(hash[:])
+	block.Nonce = nonce
+
 	return block
 }
 
 // GenesisBlock creates the first block in the blockchain, known as the genesis block, with predefined data and an empty previous hash.
-func GenesisBlock() *Block {
-	return CreateBlock("Genesis Block", "")
+func Genesis() *Block {
+	return CreateBlock("Genesis", "")
 }

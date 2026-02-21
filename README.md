@@ -81,3 +81,25 @@ In Task 3, you developed methods to create a Genesis block and add new blocks to
 
 ## Task 5: Test the Blockchain
 Now that you’ve got the initial structure of the blockchain in place, set up a blockchain, add blocks to it, and examine its structure.
+
+## Task 6: Create and Instantiate the Proof of Work Structure
+Blockchain networks employ the proof of work (PoW) consensus algorithm to validate transactions and add new blocks. The PoW algorithm requires miners to solve a complex mathematical puzzle, which requires a lot of computational power to solve, ensuring a secure blockchain network.
+
+In the PoW algorithm, you have a target that represents the difficulty level for mining new blocks. It determines the criteria the block’s hash must meet, ensuring that mining requires significant computational work. When a new block is mined, the PoW algorithm repeatedly calculates the hash of the block until it meets the difficulty criteria specified by the target. Miners have to find a hash that, compared to the target, has the required number of leading zeros.
+
+*Note:* The number of leading zeros required in the block’s hash determines the difficulty level. The more leading zeros required, the higher the difficulty.
+
+You will start by creating a proof of work structure and a function that generates an instance of it for a given block after computing the target value.
+
+*Note:* The target for mining a new block will remain constant in this example; however, in a real-world blockchain implementation, it is typically adjusted periodically to adapt to changes in the network’s computational power and maintain a consistent block creation rate.
+
+## Task 7: Mine a Block
+In this task, implement the mining process for a block in a blockchain using the PoW algorithm. Mining involves finding a valid hash for a given block that meets the difficulty criteria specified by the target. One important component in the mining process is the use of a nonce. You’ll start by initializing the data to compute the block’s hash and then perform the mining process. Simulate the mining process by repeatedly computing the hash of the block’s data with different nonces until a hash less than the target is found.
+
+## Task 8: Validate the Proof of Work Algorithm
+The PoW algorithm involves finding a valid block hash that meets a specific target. After running the PoW algorithm and obtaining the nonce, you will use it to derive the hash that meets the target. Implement a function that validates this derived hash and essentially validates the work done by the PoW algorithm.
+
+*Note:* This task assumes that the Block struct includes a Nonce field (set during mining in Task 7), which will be used here for validation.
+
+## Task 9: Test the Proof of Work Algorithm
+Once you have computed the nonce, you must store it inside that block. Currently, the Block structure has no attribute to store the nonce. Remember that you are now computing the block’s hash in the PoW algorithm; therefore, there is no need to do so separately for the block. Update the Block struct and the CreateBlock function to incorporate the PoW algorithm.
