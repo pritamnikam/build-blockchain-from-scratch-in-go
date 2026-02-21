@@ -41,7 +41,7 @@ git push -u origin main
 ```
 
 ### 4) Next (project creation steps)
-- Add `go.mod` with `go mod init <module-path>` (usually `github.com/<user>/build-blockchain-from-scratch-in-go`)
+- Add `go.mod` with `go mod init <module-path>` (usually `github.com/pritamnikam/build-blockchain-from-scratch-in-go`)
 - Implement the first `Block` struct and hashing
 - Add a simple `Blockchain` type and persistence strategy (file or in-memory)
 - Add Proof-of-Work
@@ -60,3 +60,24 @@ In this project, we will get hands-on experience building a functional blockchai
 
 We’ll begin by implementing the block structure and blockchain structures, and learn how hashes are computed and utilized within the blockchain by implementing hash functions. Next, we’ll create blocks, including the Genesis block and blockchain. We’ll implement the proof of work algorithm responsible for mining blocks in the blockchain and also delve into transactions and wallets within the blockchain system, creating a transaction structure that enables the secure and reliable transfer of assets within the blockchain network. Also, we’ll design and implement wallets with associated functions, allowing users to manage their digital assets effectively.
 
+
+
+## Task 0: Get Started
+A blockchain is a distributed ledger that consists of a chain of blocks linked together. They provide benefits such as decentralization, transparency, and enhanced security through cryptographic algorithms.
+
+A block is a fundamental blockchain unit that contains a single or a set of transactions or digital records. Each block contains a unique hash generated from its data and the previous block’s hash, forming an immutable chain.
+
+## Task 1: Create Blocks and Blockchain Structures
+In this task, we’ll create structures representing a block and blockchain.
+
+## Task 2: Compute the Hash of a Block
+After creating the structures of Block and BlockChain, implement a function to compute the hash of a block. Hash functions are vital in a blockchain because they provide data integrity and security. Calculate the hash value based on the block’s data and previous hash using the MD5 hashing algorithm.
+
+## Task 3: Create a New Block with the Genesis Block
+The very first block in a blockchain is known as a `Genesis block`. It serves as the foundation of the entire blockchain network and is often created during the initialization of a new blockchain system. Since there are no preceding blocks in the chain, the Genesis block is unique because it does not reference previous blocks. You’ll also create a function to generate new blocks in the blockchain, each connected to the previous block.
+
+## Task 4: Initialize and Add a Block to the Blockchain
+In Task 3, you developed methods to create a Genesis block and add new blocks to the blockchain. In this task, we will initialize a new blockchain and add a block to it. This involves creating an instance of the blockchain, generating the Genesis block, and then adding subsequent blocks to the chain.
+
+## Task 5: Test the Blockchain
+Now that you’ve got the initial structure of the blockchain in place, set up a blockchain, add blocks to it, and examine its structure.
