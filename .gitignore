@@ -1,0 +1,28 @@
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go test artifacts
+*.test
+*.out
+
+# Local build/output folders (adjust to your project layout)
+/bin/
+/dist/
+
+# Dependency caches / tooling
+/.cache/
+
+# Optional: vendor folder (uncomment if you don't commit vendor)
+# /vendor/
+
+# Editors / IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
