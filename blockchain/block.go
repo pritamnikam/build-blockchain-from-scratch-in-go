@@ -8,10 +8,11 @@ import (
 )
 
 type Block struct {
-	Hash     string
-	Data     string
-	PrevHash string
-	Nonce    int
+	Hash         string
+	Data         string
+	PrevHash     string
+	Nonce        int
+	Transactions []*Transaction
 }
 
 // ComputeHash calculates the hash of the block based on its data and previous hash.
@@ -22,11 +23,11 @@ func (b *Block) ComputeHash() {
 }
 
 // CreateBlock creates a new block with the given data and previous hash, computes its hash, and returns it.
-func CreateBlock(data string, prevHash string) *Block {
+func CreateBlock(data string, prevHash string, transactions []*Transaction) *Block {
 	rand.Seed(time.Now().UnixNano()) // Seed the random number generator
 	initialNonce := rand.Intn(10000)
 
-	block := &Block{"", data, prevHash, initialNonce}
+	block := &Block{"", data, prevHash, initialNonce, transactions}
 
 	newPow := NewProofOfWork(block)
 
@@ -38,7 +39,14 @@ func CreateBlock(data string, prevHash string) *Block {
 	return block
 }
 
-// GenesisBlock creates the first block in the blockchain, known as the genesis block, with predefined data and an empty previous hash.
+// GenesisBlock creates the first block in the blockchain, known as the genesis block,
+// with predefined data and an empty previous hash.
 func Genesis() *Block {
-	return CreateBlock("Genesis", "")
+	coinbaseTransaction := &Transaction{
+		Sender:   "Coinbase",
+		Receiver: "Genesis",
+		Amount:   0.0,
+		Coinbase: true,
+	}
+	return CreateBlock("Genesis", "", []*Transaction{coinbaseTransaction})
 }

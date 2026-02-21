@@ -103,3 +103,16 @@ The PoW algorithm involves finding a valid block hash that meets a specific targ
 
 ## Task 9: Test the Proof of Work Algorithm
 Once you have computed the nonce, you must store it inside that block. Currently, the Block structure has no attribute to store the nonce. Remember that you are now computing the block’s hash in the PoW algorithm; therefore, there is no need to do so separately for the block. Update the Block struct and the CreateBlock function to incorporate the PoW algorithm.
+
+## Task 10: Create the Transaction Structure
+In a blockchain, a transaction represents data transfer from one participant to another within the network. Transactions generally include data such as the sender’s and receiver’s addresses and the amount or quantity being transferred. When a transaction is initiated, it undergoes validation to ensure its authenticity. Once validated, the transaction is included in a block and added to the blockchain through mining.
+
+A coinbase transaction is a special type of transaction that is primarily used to reward miners who successfully mine a new block. It is the first transaction in each block and does not have a specific sender like regular transactions. Instead, it is created by the miner who successfully solves the cryptographic puzzle associated with mining a block. It rewards the miner by specifying the recipient’s address and an amount as a reward for their mining efforts.
+
+You will create a new structure for transactions and update the functionality for adding a block such that a new coinbase transaction is created when adding a block to the blockchain.
+
+## Task 11: Add Transactions to the Block
+The transactions are stored inside the block, but so far there is no attribute to store the transactions in a block. You have to update the Block structure and the CreateBlock function to include a new attribute for storing transactions and receiving a list of transactions as input. You’ll also update the Genesis function to create a coinbase transaction that will reward the miner who successfully mines the block.
+
+## Task 12: Test the Transactions
+Now that the transactions can be added to a block, add blocks to the blockchain with transactions to see if everything works as expected.
