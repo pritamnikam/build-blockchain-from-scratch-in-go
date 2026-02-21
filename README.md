@@ -116,3 +116,17 @@ The transactions are stored inside the block, but so far there is no attribute t
 
 ## Task 12: Test the Transactions
 Now that the transactions can be added to a block, add blocks to the blockchain with transactions to see if everything works as expected.
+
+## Task 13: Add Wallet Functionality
+In blockchain, a wallet is a digital container that stores the cryptographic keys used to access and manage a user’s assets. It consists of a private key and a public key. The public key is shared within the blockchain network and is mainly used to receive funds and verify the authenticity of digital signatures. With a public key, anyone can encrypt data that can only be decrypted by the corresponding private key. The private key is a secret cryptographic key that should be kept secure and known only to the owner. It creates digital signatures, signs transactions, and decrypts data encrypted with the corresponding public key.
+
+You will use RSA for key generation, sign transactions, and verify transaction signatures. You’ll implement a wallet structure, generate public and private keys, and create a new wallet based on the generated keys.
+
+## Task 14: Sign and Verify the Transactions
+To ensure security and integrity in a blockchain system, signing and verifying transactions is essential. A transaction is signed using a private key that provides a way to prove the authenticity of the transaction. The sender associates a transaction with their private key by appending a digital signature to a transaction, allowing other participants in the blockchain to verify that the sender authorized the transaction.
+
+A transaction is verified using the sender’s public key, ensuring it has not been tampered with since it was signed. The public key is available to all participants and can be used by any participant to verify the signature. If the transaction data has been modified in any way, the verification process will fail, indicating that the transaction has been tampered with. You will implement functions to sign and verify transactions using a particular sender’s public and private keys.
+
+
+## Task 15: Test the Wallets
+Now that wallet functionality has been added, test it in the blockchain implementation. You will create wallets for two users, simulate a transaction between them, sign the transaction, verify its authenticity, and display the transaction details.
