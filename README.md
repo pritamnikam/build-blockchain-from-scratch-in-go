@@ -1,9 +1,4 @@
 # Build a Blockchain from Scratch in Go
-
-**Suggested GitHub repository**
-- **Name:** `build-blockchain-from-scratch-in-go`
-- **Description:** Learn blockchain fundamentals by implementing blocks, hashing, proof-of-work, and simple transactions in Go.
-
 In this project, we will learn how to build a blockchain from scratch in Go by implementing block structures and hash functions. We’ll also explore the proof of work algorithm and transaction management.
 
 ## We will learn to:
