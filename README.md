@@ -130,3 +130,17 @@ A transaction is verified using the `sender’s public key`, ensuring it has not
 
 ## Task 15: Test the Wallets
 Now that wallet functionality has been added, test it in the blockchain implementation. You will create wallets for two users, simulate a transaction between them, sign the transaction, verify its authenticity, and display the transaction details.
+
+## Executive Summary
+This project walks you through building a working (educational) blockchain in Go from first principles. You start by defining the core data structures (a `Block` and a `Blockchain`) and linking blocks together using cryptographic hashes so that each block commits to the previous one, forming an append-only chain beginning with a `Genesis` block.
+
+From there, you implement and test the key mechanics that make blockchains resilient to tampering:
+- **Hashing & integrity (Tasks 1–5):** create blocks, compute a block hash from its contents + previous hash, initialize a chain, append new blocks, and inspect the resulting structure.
+- **Proof of Work (Tasks 6–9):** define a PoW target (difficulty), “mine” blocks by searching for a `nonce` that produces a valid hash, validate the mined result, and evolve the block creation flow so PoW is integrated into block creation.
+
+Finally, you extend the chain from “data blocks” into a simple value-transfer system:
+- **Transactions (Tasks 10–12):** model transactions (including a miner-reward `coinbase` transaction), store transactions inside blocks, create a coinbase transaction in the genesis block, and test adding blocks containing transactions.
+- **Wallets & signatures (Tasks 13–15):** generate wallet keypairs (RSA in this project), sign transactions with a private key, verify signatures with the public key, and test end-to-end transfers between wallets.
+
+By the end, you’ll have a small Go codebase that demonstrates how blocks link together, how PoW controls block creation, and how signed transactions and wallets enable authenticated value transfer—while keeping the implementation intentionally simple and approachable for learning.
+
